@@ -7,7 +7,7 @@
             @foreach ($popularGames as $game)
                 <div class="game mt-8">
                     <div class="relative inline-block">
-                        <a href="#">
+                        <a href="{{ route('games.show', $game['slug']) }}">
                             <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}" alt="game cover" class="hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         @if (isset($game['rating']))
@@ -18,7 +18,7 @@
                             </div>
                         @endif
                     </div>
-                    <a href="#" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{{ $game['name'] }}</a>
+                    <a href="{{ route('games.show', $game['slug']) }}" class="block text-base font-semibold leading-tight hover:text-gray-400 mt-8">{{ $game['name'] }}</a>
                     <div class="text-gray-400 mt-1">
                         @foreach ($game['platforms'] as $platform)
                             @if (array_key_exists('abbreviation', $platform))
@@ -38,7 +38,7 @@
                     @foreach ($recentlyReviewed as $game)
                         <div class="game bg-gray-800 rounded-lg shadow-md flex px-6 py-6">
                             <div class="relative flex-none">
-                                <a href="#">
+                                <a href="{{ route('games.show', $game['slug']) }}">
                                     <img src="{{ Str::replaceFirst('thumb', 'cover_big', $game['cover']['url']) }}" alt="game cover" class="w-48 hover:opacity-75 transition ease-in-out duration-150">
                                 </a>
                                 <div class="absolute bottom-0 right-0 w-16 h-16 bg-gray-900 rounded-full" style="right: -20px; bottom: -20px">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="ml-6 lg:ml-12">
-                                <a href="#" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">{{ $game['name'] }}</a>
+                                <a href="{{ route('games.show', $game['slug']) }}" class="block text-lg font-semibold leading-tight hover:text-gray-400 mt-4">{{ $game['name'] }}</a>
                                 <div class="text-gray-400 mt-1">
                                     @foreach ($game['platforms'] as $platform)
                                         @if (array_key_exists('abbreviation', $platform))
@@ -69,9 +69,9 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                     @foreach ($mostAnticipated as $game)
                         <div class="game flex">
-                            <a href="#"><img src="{{ Str::replaceFirst('thumb','cover_small', $game['cover']['url']) }}" alt="game cover" class="w-16 hover:opacity-75 transition ease-in-out duration-150"></a>
+                            <a href="{{ route('games.show', $game['slug']) }}"><img src="{{ Str::replaceFirst('thumb','cover_small', $game['cover']['url']) }}" alt="game cover" class="w-16 hover:opacity-75 transition ease-in-out duration-150"></a>
                             <div class="ml-4">
-                                <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                                <a href="{{ route('games.show', $game['slug']) }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                                 <div class="text-gray-400 text-sm mt-1">{{ Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}</div>
                             </div>
                         </div>
@@ -82,9 +82,9 @@
                 <div class="most-anticipated-container space-y-10 mt-8">
                 @foreach ($comingSoon as $game)
                     <div class="game flex">
-                        <a href="#"><img src="{{ Str::replaceFirst('thumb','cover_small', $game['cover']['url']) }}" alt="game cover" class="w-16 hover:opacity-75 transition ease-in-out duration-150"></a>
+                        <a href="{{ route('games.show', $game['slug']) }}"><img src="{{ Str::replaceFirst('thumb','cover_small', $game['cover']['url']) }}" alt="game cover" class="w-16 hover:opacity-75 transition ease-in-out duration-150"></a>
                         <div class="ml-4">
-                            <a href="#" class="hover:text-gray-300">{{ $game['name'] }}</a>
+                            <a href="{{ route('games.show', $game['slug']) }}" class="hover:text-gray-300">{{ $game['name'] }}</a>
                             <div class="text-gray-400 text-sm mt-1">{{ Carbon\Carbon::parse($game['first_release_date'])->format('M d, Y') }}</div>
                         </div>
                     </div>
